@@ -1,0 +1,386 @@
+@charset "UTF-8";
+.border{
+	border:1px solid red; 
+}
+.fl{
+	float:left;
+}
+.fr{
+	float:right;
+}
+.head .nav a:hover{
+	color:#e50a80;
+}
+.head .nav i{
+	background:url("../images/navbar.png") no-repeat;
+}
+a{
+	outline:none;
+	color:#000;
+}
+a:hover{
+	color: #e50a80;
+}
+.main a:hover img{
+	opacity:.85;
+	filter:Alpha(opacity=85);
+}
+/*
+	样式重用的部分,重用的地方有大明星上面的轮播/大明星的底部
+ */
+a.last{
+	margin-right: 0px !important;
+	float:right !important;
+}
+/*
+	轮播图
+*/
+.slide{
+	position:relative;
+	overflow:hidden;
+}
+
+.slide .slide-wrap{
+	width:100%;
+	height:100%;
+}
+.slide .slide-wrap > ul{
+	width:1000%;
+	margin-left:-100%;
+}
+.slide .slide-wrap ul li{
+	float:left;
+}
+.slide .slide-wrap > ul > li > a{
+	position:relative;
+	display:block;
+}
+
+.slide-wrap a span{
+	width:100%;
+	height:80px;
+	position:absolute;
+	bottom:0px;
+	left:0px;
+	font-size:20px;
+	background:url("../images/slide_pic_shadow.png") no-repeat center;
+	line-height:80px;
+	text-align:center;
+	color: #fff;
+}
+.slide-wrap span.i-title{
+	width: 315px;
+	height:104px;
+	padding:20px 20px 0px;
+	line-height:24px;
+	font-size:14px;
+	text-align: left;
+}
+.slide-wrap span.i-title i{
+	height:28px;
+	line-height: 28px;
+	display:block;
+	overflow:hidden;
+	text-align: center;
+	margin-bottom:2px;
+	font-size: 18px;
+}
+.btn a{
+	width:37px;
+	height:73px;
+	position:absolute;
+	top:50%;
+	margin-top:-35px;
+	z-index:99;
+	display:none;
+}
+.btn a.prev{
+	left:-60px;
+	background:url("../images/new-prev01.png");
+}
+.btn a.next{
+	right:-60px;
+	background:url("../images/new-next01.png");
+}
+.tab{
+	position:absolute;
+	bottom:20px;
+	width:100%;
+	height:0px;
+	line-height:0px;
+	text-align:center;
+	z-index:99;
+}
+.tab ul{
+	height:0px;
+	line-height:0px;
+}
+.tab ul li{
+	width:10px;
+	height:10px;
+	background:#B0B0B0;
+	display:inline-block;
+	margin:0px 4px;
+	overflow:hidden;
+	cursor:pointer;
+}
+.tab ul li.active{
+	background:#E5077C;
+}
+
+.des span{
+	height:45px;
+	display:block;
+	background:#f2f2f2;
+	text-align:center;
+	font:16px/45px "Microsoft Yahei";
+}
+
+
+/* 图标的公共样式(大明星,爱时尚...) */
+.marginBottom45{
+	margin-bottom: 45px;
+}
+.mb28{
+	margin-bottom: 28px;
+}
+.mb15{
+	margin-bottom: 15px;
+}
+.mt15{
+	margin-top: 15px;
+}
+.mb68{
+	margin-bottom: 68px;
+}
+.thead{
+	margin-bottom:15px;
+}
+.thead-icon b{
+	height: 56px;
+	display: block;
+	margin: 0 auto;
+	background: url("../images/indexPic.png");
+}
+.thead-icon{
+	border-bottom: 1px solid #000;
+}
+
+.tbody > div{
+	width:355px;
+}
+.tbody a:hover,.todayFocus .slide .slide-wrap a:hover span,.tfoot a:hover,.modelBox .slide a:hover span,.tfoot .slide-wrap ul li a:hover span,.slide_b .slide_b_con a:hover span{
+	color: #747474 !important;
+}
+.tbody .tbody-center{
+	margin:0 26px;
+}
+
+.tbody-center a span.fsize14{
+	font-size: 14px;
+}
+.title-alpha a{
+	float:left;
+	position: relative;
+}
+.title-alpha a span{
+	width:100%;
+	height: 40px;
+	position: absolute;
+	bottom: 0px;
+	left: 0px;
+	color: #fff;
+	padding-top:25px;
+	background: url("../images/fashion_bg.png") repeat-x;
+	text-align: center;
+	font:16px/40px "Microsoft Yahei";
+}
+.nav-list{
+	text-align: center;
+}
+.nav-list a{
+	width:86px;
+	display: inline-block;
+	text-align:center;
+	font-size: 16px;
+	line-height:45px;
+	vertical-align: middle;
+}
+.nav-list i{
+	display:inline-block;
+	width:2px;
+	height:16px;
+	background:#ccc;
+	margin: 0 15px;
+	vertical-align: middle;
+}
+
+/* 热点列表公共样式 */
+.hotList{
+	width: 325px;
+	height:227px;
+	border:8px solid #F2F2F2;
+	margin-top:24px;
+	padding:17px 0px 0px 14px;
+}
+.hotList ul li{
+	width:100%;
+	height:30px;
+	line-height:30px;
+	text-indent: 4em;
+	margin-bottom: 2px;
+	background:url("../images/indexPic.png") no-repeat;
+	transition: all .3s ease;
+}
+.hotList ul li:hover{
+	margin-left:12px;
+}
+.hotList ul li a{
+	height:100%;
+	display:block;
+	font-size:14px;
+	font-family: "Microsoft Yahei";
+}
+.hotList ul li.t1{
+	background-position: -430px 6px;
+}
+.hotList ul li.t2{
+	background-position: -430px -195px;
+}
+.hotList ul li.t3{
+	background-position: -430px -34px;
+}
+.hotList ul li.t4{
+	background-position: -430px -235px;
+}
+.hotList ul li.t5{
+	background-position: -430px -73px;
+}
+.hotList ul li.t6{
+	background-position: -430px -274px;
+}
+.hotList ul li.t7{
+	background-position: -430px -114px;
+	margin-bottom: 0px;
+}
+/* 带有上下结构的轮播图 */
+.slide_t_b{
+	background: #F2F2F2;
+	overflow: hidden;
+}
+.slide_t_b .slide .slide-wrap{
+	
+	overflow: hidden;
+}
+.slide_t_b .slide{
+	width:315px;
+	height:519px;
+	padding:15px 20px 0px;
+}
+.slide_t_b .slide_b{
+	height:256px;
+}
+.slide_t_b .slide_b a{
+	display:block;
+	position:relative;
+}
+.slide_t_b .tab{
+	left:0px;
+}
+.slide_b_title{
+	width:315px;
+	height:28px;
+	position:absolute;
+	bottom:232px;
+	left:20px;
+	border-bottom: 1px solid #000;
+}
+.slide_b_title i{
+	width:130px;
+	height:100%;
+	display:block;
+	background:url("../images/indexPic.png") no-repeat 84px -120px;
+	font: 20px/28px "Microsoft Yahei";
+	overflow:hidden;
+	
+}
+.slide_b .slide_b_con{
+	height:190px;
+	margin-top: 76px;
+}
+.slide_b .slide_b_con span{
+	bottom:-40px;
+	height:38px;
+	line-height: 38px;
+	font-size:14px;
+	color:#000;
+	background:none;
+	overflow: hidden;
+}
+
+.tfoot.slide{
+	width:1120px;
+	height:310px;
+	background:#f1f1f1 url("../images/imgs_bg.png") repeat-x;
+	padding-top:20px;
+}
+.tfoot{
+	margin-top:30px;
+}
+.tfoot .slide{
+	height:100%;
+}
+.tfoot .slide-wrap ul li{
+	width: 1120px;
+}
+.tfoot .slide-wrap ul li a{
+	float:left;
+	margin-right:27px;
+}
+.tfoot .slide-wrap ul li a span{
+	background:none;
+	bottom:-70px;
+	font-size:16px;
+	color:#000;
+}
+.tfoot .slide .btn a{
+	margin-top:-66px;
+}
+/* 医美汇 & 摩登学院 部分的人物介绍, */
+ul.intro{
+	height:218px;
+}
+ul.intro li{
+	width:174px;
+	height:205px;
+	float:left;
+	background: #F2F2F2;
+	padding-top:15px;
+	text-align:center;
+	position:relative;
+	font-size:14px;
+	font-family: "Microsoft Yahei";
+}
+
+ul.intro li.mg{
+	margin-right:7px;
+}
+ul.intro li img{
+	border-radius: 100%;
+}
+ul.intro li span{
+	height:40px;
+	display:block;
+	margin-top:14px;
+	line-height:40px;
+	text-align:center;
+	background:none;
+	font-size:14px;
+	font-family: "Microsoft Yahei";
+}
+ul.intro li span > a:hover{
+	color:#E50A80 !important;
+}
+ul.intro li i{
+	color: #888;
+}

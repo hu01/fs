@@ -1,0 +1,12 @@
+<embed src="http://player.youku.com/player.php/sid/XNzE0NDY5ODY0/v.swf" allowFullScreen="true" quality="high" width="525" height="331" align="middle" allowScriptAccess="always" type="application/x-shockwave-flash"></embed>
+
+http://player.video.qiyi.com/13180415d7feb04cdd0e84542160271e/0/0/w_19rqvbahfx.swf-albumId=2136079009-tvId=2136079009-isPurchase=0-cnId=12
+
+
+http://player.video.qiyi.com/e6272269f87ffc9017be38daacfe4741/0/0/w_19rrqxopt5.swf-albumId=3781760709-tvId=3781760709-isPurchase=0-cnId=6
+
+
+http://player.video.qiyi.com/e6272269f87ffc9017be38daacfe4741/0/0/w_19rrqxopt5.swf-albumId=3781760709-tvId=3781760709-isPurchase=0-cnId=6
+
+
+http://player.video.qiyi.com/40c9d71a74c1c66ab6136b01de921c9f/0/0/w_19rrd9jv71.swf-albumId=1067644609-tvId=1067644609-isPurchase=0-cnId=12

@@ -1,0 +1,216 @@
+<!DOCTYPE HTML>
+<html lang="EN">
+	<head>
+		<meta charset="UTF-8"/>
+		<title> new document </title>
+		<meta name="Author" content="新丁驾到" />
+		<meta name="Keywords" content="JavaScript,jQuery" />
+		<meta name="Description" content="不忘初心,方得始终" />
+
+
+		<style type="text/css">
+			*{
+				margin:0;
+				padding:0;
+			}
+			body{
+				background:url('img/bg.jpg') no-repeat;
+			}
+			#wrap{
+				width:300px;
+				height:500px;
+				border:10px solid #fff;
+				margin:60px auto 0px;
+				position:relative;
+				font-family:'Microsoft Yahei';
+				overflow:hidden;
+			}
+			#wrap .title{
+				color:#fff;
+				margin-top:20px;
+				font-weight:400;
+				font-size:30px;
+				text-align:center;
+			}
+			#wrap .diff{
+				width:150px;
+				height:40px;
+				background:#fff;
+				text-align:center;
+				line-height:40px;
+				font-size:14px;
+				margin:60px auto;
+				cursor:pointer;
+			}
+			#wrap .diff.super{
+				background:#6ff;
+				color:#f00;
+				font-weight:700;
+			}
+			#wrap .diff.hover{
+				background:#cc0066;
+				color:#fff;
+			}
+			#wrap .plane{
+				position:absolute;
+			}
+			#wrap .bullet{
+				position:absolute;
+			}
+		</style>
+	</head>
+		
+	<body>
+
+		<div id="wrap"></div>
+		<script type="text/javascript">
+	
+			(function(){
+				var oWrap = document.getElementById('wrap');
+				
+				//盒子到页面的距离
+				var wLeft = oWrap.offsetLeft;
+				var wTop = oWrap.offsetTop;
+				
+			
+				//调整宽度的时候
+				window.onresize = function(){
+					wLeft = oWrap.offsetLeft;
+					wTop = oWrap.offsetTop;
+				};
+				
+
+				//盒子的宽高  及边框的宽度
+				var bWidth = parseFloat(getStyle( oWrap , 'width' ));
+				var bHeight = parseFloat(getStyle( oWrap , "height" ));
+				var borderWidth = parseFloat(getStyle( oWrap , 'borderWidth' ));
+
+				//初始化
+				function init(){
+					var oH = document.createElement("h1");
+						oH.className = 'title';
+						oH.innerHTML = "飞机大战v1.0";
+					oWrap.appendChild(oH);
+					for(var i=0 ; i<4 ; i++){
+						var oP = document.createElement('p');
+							oP.className = 'diff';
+							oP.innerHTML = "简单程度";
+							var html = '',bSpeed;
+							switch( i ){
+								case 0:	
+									html = "简单难度";
+									oP.bSpeed = 150;
+									break;
+								case 1:	
+									html = "中等难度";
+									oP.bSpeed = 300;
+									break;
+								case 2:	
+									html = "困难难度";
+									oP.bSpeed = 300;
+									break;
+								case 3:	
+									html = "炒鸡难度";
+									oP.bSpeed = 50;
+									oP.className += " super";
+									break;
+							};
+							oP.innerHTML = html;
+							oWrap.appendChild(oP);
+							oP.onmouseover = function(){
+								this.className += " hover";
+							};
+							oP.onmouseout = function(){
+								this.className = "diff";
+							};
+							if(oP.className.indexOf("super") != -1){
+								oP.onmouseout = function(){
+									this.className = "diff super";
+								};
+							};
+						oP.onclick = function(e){
+							e = e || event;
+							startGame( e , this.bSpeed );
+						};
+								
+					};
+					
+					
+				};
+				init();
+				function startGame( e , bSpeed ){
+					oWrap.innerHTML = "";
+					//生成飞机
+					var oPlane = document.createElement('img');
+						oPlane.src = "img/plane.png";
+						oPlane.className = 'plane';
+						oPlane.width = 60;
+						oPlane.height = 36;
+						oPlane.style.left = e.pageX - wLeft - borderWidth - oPlane.width/2+'px';
+						oPlane.style.top = e.pageY - wTop - borderWidth - oPlane.height/2+"px";
+					oWrap.appendChild(oPlane);//添加进div里面
+
+					/*
+						图片的宽高,图片加载时有个过程，
+						需要图片完全加载完成时才能获取的宽高
+						图片有 onload 事件
+						
+					
+					var pWidth,pHeight;
+					oPlane.onload = function(){
+						pWidth = this.clientWidth;
+						pHeight = this.clientHeight;
+					};
+					*/
+
+
+					//鼠标移动
+
+					var leftMin = -oPlane.width/2,
+						leftMax = bWidth - oPlane.width/2,
+						topMin = 0,
+						topMax = bHeight - oPlane.height;
+						
+
+					document.onmousemove = function(e){
+						e = e || event;
+						var left = e.pageX - wLeft - borderWidth - oPlane.width/2;
+						var top = e.pageY - wTop - borderWidth - oPlane.height/2;
+
+						left = Math.max( leftMin , left );
+						left = Math.min( leftMax , left );
+						top = Math.max( topMin , top );
+						top = Math.min( topMax , top );
+
+						oPlane.style.left = left + 'px';
+						oPlane.style.top = top + 'px';
+					};
+
+
+					//生成子弹
+					var bTimer = setInterval(function(){
+						var oBullet = new Image();
+							oBullet.src = "img/bullet.png";
+							oBullet.className = 'bullet';
+							oBullet.width = 6;
+							oBullet.height = 22;
+							oBullet.style.left = oPlane.offsetLeft + oPlane.width/2 - oBullet.width/2 +"px";
+							oBullet.style.top = oPlane.offsetTop - oBullet.height + "px";   
+						oWrap.appendChild(oBullet);
+						var timer = setInterval(function(){
+							oBullet.style.top = oBullet.offsetTop - 5 + "px";
+							if(oBullet.offsetTop <= -oBullet.height){
+								clearInterval(timer);
+								oWrap.removeChild(oBullet);
+							}
+						},13);
+					},bSpeed);
+				};
+				//获取样式的扩展方法
+				function getStyle( obj , attr ){
+					return obj.currentStyle?obj.currentStyle[attr]:getComputedStyle(obj)[attr];
+				};
+			})();
+		</script>
+	</body>
+</html>
